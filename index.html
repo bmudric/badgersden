@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+  <title>Badger's Den</title>
+
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/bootstrap-toggle.css">
+
+  <style>
+    .jumbotron {
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      padding: 20px 40px 20px 40px;
+    }
+
+    .btn-outline-dark {
+      padding: 0px;
+    }
+  </style>
+
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/bootstrap-toggle.js"></script>
+
+  <script>
+
+    function refreshStatus() {
+      console.log("Refreshing relay status");
+
+    }
+
+    function load() {
+      setInterval(refreshStatus, 3000);
+    }
+
+    window.onload = load;
+  </script>
+</head>
+<body>
+<div class="jumbotron jumbotron-fluid bg-transparent">
+
+  <h1>Badger's Den</h1>
+  <div class="checkbox">
+    <label for="relay01">Utičnica 01</label>
+    <div class="btn btn-outline-dark">
+      <input id="relay01" type="checkbox" data-onstyle="success" data-offstyle="danger"
+             data-toggle="toggle" data-on="Upaljeno"
+             data-off="Ugaseno">
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
