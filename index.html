@@ -4,52 +4,53 @@
   <meta charset="UTF-8">
   <title>Badger's Den</title>
 
-  <link rel="stylesheet" href="css/bootstrap.css">
-  <link rel="stylesheet" href="css/bootstrap-toggle.css">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
+        rel="stylesheet">
+  <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css"
+        rel="stylesheet">
 
-  <style>
-    .jumbotron {
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-      padding: 20px 40px 20px 40px;
-    }
-
-    .btn-outline-dark {
-      padding: 0px;
-    }
-  </style>
-
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/bootstrap.js"></script>
-  <script src="js/bootstrap-toggle.js"></script>
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 
   <script>
+    function switchRelay(toOn) {
+      if (toOn === true) {
+        $.getJSON("http://relay01.fritz.box:60666/on", setToggle)
+      } else {
+        $.getJSON("http://relay01.fritz.box:60666/off", setToggle)
+      }
+    }
+
+    function setToggle(relayJson) {
+      //console.log(relayJson);
+      var relayOn = Boolean(relayJson["relayIsOn"] === "true");
+      console.log("Relay status received (on): " + relayOn);
+      $("#relay01").prop("checked", relayOn).change();
+    }
 
     function refreshStatus() {
-      console.log("Refreshing relay status");
-
+      //console.log("Refreshing relay status");
+      $.getJSON("http://relay01.fritz.box:60666/status", setToggle)
     }
 
     function load() {
       setInterval(refreshStatus, 3000);
+      $("#relay01").click(switchRelay(true));
     }
 
     window.onload = load;
   </script>
 </head>
 <body>
-<div class="jumbotron jumbotron-fluid bg-transparent">
+<div class="container">
 
   <h1>Badger's Den</h1>
-  <div class="checkbox">
-    <label for="relay01">Utičnica 01</label>
-    <div class="btn btn-outline-dark">
-      <input id="relay01" type="checkbox" data-onstyle="success" data-offstyle="danger"
-             data-toggle="toggle" data-on="Upaljeno"
-             data-off="Ugaseno">
-    </div>
-  </div>
+
+  <p>razmak</p>
+
+  <input id="relay01" type="checkbox" data-toggle="toggle" data-onstyle="success"
+         data-offstyle="danger"
+         data-on="Upaljeno" data-off="Ugaseno">
 
 </div>
 </body>
