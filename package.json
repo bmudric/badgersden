@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/bmudric/badgersden/issues"
   },
-  "homepage": "https://github.com/bmudric/badgersden#readme"
+  "homepage": "https://github.com/bmudric/badgersden#readme",
+  "dependencies": {
+    "express-generator": "^4.16.1"
+  }
 }
