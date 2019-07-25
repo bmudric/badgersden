@@ -1,0 +1,19 @@
+{
+  "name": "badgersden",
+  "version": "0.0.1",
+  "description": "Badger's Den Smart Home Device Interface",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bmudric/badgersden.git"
+  },
+  "author": "Bojan Mudric",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/bmudric/badgersden/issues"
+  },
+  "homepage": "https://github.com/bmudric/badgersden#readme"
+}
