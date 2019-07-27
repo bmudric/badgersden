@@ -15,18 +15,34 @@
 
   <script src="js/badgersden.js"></script>
 </head>
+
 <body>
 <div class="container-fluid">
+  <img src="img/badgersdentitle.svg" class="img-fluid" alt="Badger's Den">
 
-  <h1>Badger's Den</h1>
+  <ul id="deviceList" class="list-group">
+    <li class="list-group-item">
+      <div class="form-group">
+        <h3>
+          <label class="" for="relay01">Uticnica</label>
+          <input id="relay01" type="checkbox" data-toggle="toggle" data-onstyle="success"
+                 data-offstyle="danger"
+                 data-on="Upaljeno" data-off="Ugaseno">
+        </h3>
 
-  <div class="form-group">
-    <label class="control-label  col-sm-5" for="relay01">Uticnica</label>
-    <input id="relay01" type="checkbox" data-toggle="toggle" data-onstyle="success"
-           data-offstyle="danger"
-           data-on="Upaljeno" data-off="Ugaseno">
-  </div>
-
+      </div>
+    </li>
+    <li class="list-group-item">
+      <div class="form-group">
+        <h3>
+          <label class="" for="relay01">Uticnica dugacki naziv</label>
+          <input id="relay02" type="checkbox" data-toggle="toggle" data-onstyle="success"
+                 data-offstyle="danger"
+                 data-on="Upaljeno" data-off="Ugaseno">
+        </h3>
+      </div>
+    </li>
+  </ul>
 </div>
 </body>
 </html>
