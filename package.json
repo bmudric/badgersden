@@ -18,6 +18,7 @@
   "homepage": "https://github.com/bmudric/badgersden#readme",
   "dependencies": {
     "bootstrap": "^4.3.1",
+    "bootstrap4-toggle": "^3.5.0",
     "express": "^4.17.1",
     "express-generator": "^4.16.1",
     "jquery": "^3.4.1",

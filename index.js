@@ -3,7 +3,9 @@ let app = express();
 
 app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js'));
 app.use('/js', express.static(__dirname + '/node_modules/jquery/dist'));
+app.use('/js', express.static(__dirname + '/node_modules/bootstrap4-toggle/js'));
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
+app.use('/css', express.static(__dirname + '/node_modules/bootstrap4-toggle/css'));
 app.use('/', express.static('frontend'));
 
 let devices = require("./mdnsbrowser").devices;
