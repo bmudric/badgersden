@@ -1,5 +1,8 @@
 let express = require("express");
+let cors = require('cors');
 let app = express();
+
+app.use(cors());
 
 app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js'));
 app.use('/js', express.static(__dirname + '/node_modules/jquery/dist'));
