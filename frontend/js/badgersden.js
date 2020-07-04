@@ -21,7 +21,7 @@ function handleToggle(event) {
 }
 
 function refreshStatus() {
-  return $.getJSON("http://localhost:3000/devices", function (devices) {
+  return $.getJSON(document.location.origin + "/devices", function (devices) {
     let dl = $("#deviceList").empty();
     $.each(devices, function (id, url) {
       // append checkbox for relay in the list
@@ -50,7 +50,7 @@ function refreshStatus() {
 }
 
 function load() {
-  setInterval(refreshStatus, 10000);
+  setInterval(refreshStatus, 5000);
   refreshStatus();
 }
 
