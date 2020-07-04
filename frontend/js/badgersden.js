@@ -4,10 +4,11 @@ function setToggle(relayJson) {
 }
 
 function initializeToggle(event) {
-  console.log("Toggle " + event.data.id);
-  if ($(event.data.id).prop('checked')) {
-    $.getJSON("http://" + event.data.url + "/on", setToggle)
+  if ($(event.target).prop('checked')) {
+    console.log("Toggle " + event.data.id + " on");
+    $.postJSON("http://" + event.data.url + "/on", setToggle)
   } else {
+    console.log("Toggle " + event.data.id + " off");
     $.getJSON("http://" + event.data.url + "/off", setToggle)
   }
 }
