@@ -1,17 +1,15 @@
-$(function () {
-  $('#relay01').change(function () {
-    console.log("Toggle...")
-    if ($('#relay01').prop('checked')) {
-      $.getJSON("http://192.168.178.151:80/on", setToggle)
-    } else {
-      $.getJSON("http://192.168.178.151:80/off", setToggle)
-    }
-  })
-});
-
 function setToggle(relayJson) {
   let relayOn = Boolean(relayJson["relayIsOn"] === "true");
   $("#relay01").prop("checked", relayOn).change();
+}
+
+function initializeToggle(event) {
+  console.log("Toggle " + event.data.id);
+  if ($(event.data.id).prop('checked')) {
+    $.getJSON("http://" + event.data.url + "/on", setToggle)
+  } else {
+    $.getJSON("http://" + event.data.url + "/off", setToggle)
+  }
 }
 
 function refreshStatus() {
@@ -25,16 +23,7 @@ function refreshStatus() {
       $("<label>").attr("for", id).text(id).appendTo(h3);
       let toggle = $("<input>").attr("id", id).attr("type", "checkbox").appendTo(h3);
       toggle.bootstrapToggle();
-
-      // apply the toggle function to the added relay
-      toggle.change(function () {
-        console.log("Toggle " + id);
-        if ($('#relay01').prop('checked')) {
-          $.getJSON("http://" + url + "/on", setToggle)
-        } else {
-          $.getJSON("http://" + url + "/off", setToggle)
-        }
-      });
+      toggle.change({id: id, url: url}, initializeToggle);
       console.log("device: ", id, "url: ", url);
     });
     dl.hide().show();
