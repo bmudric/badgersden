@@ -6,7 +6,7 @@ function setToggle(relayOn, target) {
 
 function createSetToggle(target) {
   return function (relayJson) {
-    setToggle(JSON.parse(relayJson).relayIsOn, target);
+    setToggle(relayJson.relayIsOn, target);
   }
 }
 
