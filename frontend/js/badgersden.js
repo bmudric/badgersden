@@ -45,7 +45,6 @@ function refreshStatus() {
         toggle.change({id: id, url: url}, handleToggle);
       });
     });
-    dl.hide().show();
   });
 }
 
