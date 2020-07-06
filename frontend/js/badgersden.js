@@ -30,16 +30,18 @@ function refreshStatus() {
       let h3 = $("<h3>").appendTo(div);
       $("<label>").attr("for", id).text(id).appendTo(h3);
       let toggle = $("<input>").attr("id", id).attr("type",
-          "checkbox").appendTo(h3);
-      toggle.bootstrapToggle({
-        onstyle: "success"
-      });
-
+          "checkbox");
 
       // the initial state is fetched from the relay
       $.getJSON("http://" + url + "/status", function (relayJson) {
-        setToggle(relayJson.relayIsOn, toggle);
-        console.log("device: ", id, "url: ", url, "on: ", toggle.prop('checked'));
+        toggle.appendTo(h3);
+        toggle.attr('checked', relayJson.relayIsOn);
+        toggle.bootstrapToggle({
+          onstyle: "success"
+        });
+
+        console.log("device: ", id, "url: ", url, "on: ",
+            toggle.prop('checked'));
 
         // the checkbox change handler calls the relay API
         toggle.change({id: id, url: url}, handleToggle);
