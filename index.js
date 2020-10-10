@@ -19,6 +19,7 @@ app.use("/devices", (req, res, next) => {
   res.json(devices.toJSON());
 });
 
-app.listen(3000, () => {
-  console.log("Server running on port 3000");
+app.set('port', process.env.PORT || 3000);
+app.listen(app.get('port'), () => {
+  console.log("Server running on port " + app.get('port'));
 });

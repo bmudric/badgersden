@@ -1,7 +1,7 @@
 ## UNDER CONSTRUCTION!
 # badgersden
 
-Frontend app for controlling smart switches through local wifi
+App for controlling smart switches through local wifi
 
 
 Dependencies:
